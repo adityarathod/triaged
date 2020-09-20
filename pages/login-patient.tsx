@@ -10,7 +10,7 @@ const PatientLogin = () => {
       </div>
       <div className='w-2/3 h-full py-16 px-12 flex flex-col justify-center items-center'>
         <h1 className='font-medium text-4xl mb-6'>Patient Login</h1>
-        <Login/>
+        <Login landingPage="/dashboard-patient"/>
       </div>
     </div>
   )

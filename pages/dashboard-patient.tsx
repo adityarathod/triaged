@@ -1,11 +1,11 @@
 import Navbar from '../components/navbar'
 
-const Dashboard = () => {
+const PatientDashboard = () => {
   return (
     <>
       <Navbar />
       <div className='mt-2 px-32'>
-        <h1 className='text-4xl font-bold'>Provider Dashboard</h1>
+        <h1 className='text-4xl font-bold'>Patient Dashboard</h1>
         <hr className='my-4' />
         <div className='w-full flex flex-row shadow-md rounded-lg' style={{ height: '500px' }}>
           <div className='w-3/8 h-full rounded-tl-lg rounded-bl-lg flex flex-col overflow-scaroll text-center'>
@@ -66,4 +66,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default PatientDashboard
