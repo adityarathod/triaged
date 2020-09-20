@@ -14,7 +14,7 @@ const Home = () => {
           right: 0,
           bottom: 0,
           left: 0,
-          zIndex: '-1000',
+          zIndex: -1000,
           overflow: 'hidden',
           backgroundColor: 'rgba(0,0,0,0.5)',
         }}>
@@ -34,7 +34,7 @@ const Home = () => {
           <source src='/media/doctor-stock-hd.mp4' type='video/mp4' />
         </video>
       </div>
-      <div className='fixed top-0 left-0 w-full' style={{ zIndex: '1000' }}>
+      <div className='fixed top-0 left-0 w-full' style={{ zIndex: 1000 }}>
         <Navbar homePage />
       </div>
       <div
