@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Case } from '../pages/dashboard/provider'
 import * as typeformEmbed from '@typeform/embed'
 import React, { useRef, useEffect } from 'react'
-import uuid from '../util/uuid'
 
 interface TypeformProps {
   tfLink: string
