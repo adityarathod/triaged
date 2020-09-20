@@ -13,6 +13,10 @@ const ConditionDisplay = (props: { conditionName: string; cases: Case[] }): JSX.
     setSelectedCase(selectedCase + (forward ? 1 : -1))
   }
 
+  useEffect(() => {
+    setSelectedCase(0)
+  }, [props.conditionName, props.cases])
+
   if (!props.cases) {
     return (
       <div className='flex-1 h-full px-10 py-4'>
@@ -35,10 +39,10 @@ const ConditionDisplay = (props: { conditionName: string; cases: Case[] }): JSX.
             {props.cases[selectedCase].full_name}
           </p>
           <p>
-            <span className='font-medium'>Sex:&nbsp;</span> Female
+            <span className='font-medium'>Sex:&nbsp;</span> {props.cases[selectedCase].sex}
           </p>
           <p>
-            <span className='font-medium'>Age:&nbsp;</span> 34
+            <span className='font-medium'>Age:&nbsp;</span> {props.cases[selectedCase].age}
           </p>
           <p>
             <span className='font-medium'>Feels like:&nbsp;</span>
