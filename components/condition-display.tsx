@@ -26,16 +26,7 @@ const ConditionDisplay = (props: { conditionName: string; cases: Case[] }): JSX.
           <p>
             <span className='font-medium'>Patient ID:&nbsp;</span>
             <span className='font-mono'>
-              {new String(
-                Math.log(
-                  parseInt(
-                    props.cases[selectedCase].full_name
-                      .split('')
-                      .map(x => x.charCodeAt(0))
-                      .join('')
-                  )
-                )
-              ).replace('.', '')}
+              {props.cases[selectedCase].submission}
             </span>
           </p>
           <p>
