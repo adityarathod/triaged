@@ -20,7 +20,9 @@ const NavbarButton = (props: { href: string; text: string }): JSX.Element => {
 const Navbar = (props: NavbarProps): JSX.Element => {
   return (
     <div className='m-0 py-8 px-8 flex flex-row justify-center w-full'>
-      <img src={LOGO_PATH} className='h-8 self-center' />
+      <Link href='/'>
+        <img src={LOGO_PATH} className='h-8 self-center cursor-pointer' />
+      </Link>
       <div className='flex-1'>&nbsp;</div>
       {props.homePage && (
         <div className='flex flex-row'>
