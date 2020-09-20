@@ -1,17 +1,21 @@
 import Link from 'next/link'
 import { LOGO_PATH } from '../constants'
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react'
 import * as typeformEmbed from '@typeform/embed'
+import { useRouter } from 'next/router'
 
 const Triage = () => {
     const typeformRef = useRef(null);
-  
+    const router = useRouter();
     useEffect(() => {
         typeformEmbed.makeWidget(typeformRef.current, 'https://form.typeform.com/to/hN84Gk1f', {
         hideFooter: true,
         hideHeaders: true,
         opacity: 0,
         buttonText: "Let's get Started.",
+        onSubmit: function () {
+            router.push('/dashboard')
+          },
         });
     }, [typeformRef]);
   return (
