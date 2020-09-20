@@ -4,12 +4,19 @@ import { useEffect, useState } from 'react'
 import Navbar from '../../components/navbar'
 import firebase from '../../firebase'
 import { error } from '../../util/log'
+import { Case } from '../dashboard/provider'
+
+interface Feedback {
+  immediate_attention: string
+  in_person: string
+  next_steps: string
+}
 
 const Report = () => {
   const router = useRouter()
   const { id } = router.query
-  const [surveyData, setSurveyData] = useState(null)
-  const [feedbackData, setFeedbackData] = useState(null)
+  const [caseData, setCaseData] = useState<Case>(null)
+  const [feedbackData, setFeedbackData] = useState<Feedback>(null)
 
   useEffect(() => {
     if (!id) return
@@ -20,16 +27,16 @@ const Report = () => {
       .doc(id.toString())
       .get()
       .then(snapshot => {
-        setSurveyData(snapshot.data())
+        setCaseData(snapshot.data() as any) // oh god
       })
-      
+
     firebase
       .firestore()
       .collection('feedback')
       .doc(id.toString())
       .get()
       .then(snapshot => {
-        setFeedbackData(snapshot.data())
+        setFeedbackData(snapshot.data() as any) // no please not again
       })
   }, [id])
 
@@ -39,12 +46,64 @@ const Report = () => {
       <div className='mt-2 px-32'>
         <h1 className='text-4xl font-bold'>Skin Report</h1>
         <hr className='my-4' />
-        <div
-          className='w-full flex flex-row shadow-md rounded-lg'
-          style={{ height: '500px' }}>
-            {JSON.stringify(surveyData)}
-            {JSON.stringify(feedbackData)}
-          </div>
+
+        {caseData && feedbackData && (
+          <div
+            className='w-full flex flex-col shadow-md rounded-lg'
+            style={{ height: '500px' }}>
+            <h2 className='text-3xl font-medium'>Report for {caseData.full_name}</h2>
+            <div className='flex flex-row'>
+              <div className='flex-1 p-6'>
+                <p>
+                  <span className='font-bold'>Patient Info</span>
+                </p>
+                <p>
+                  <span className='font-medium'>Patient ID:&nbsp;</span>
+                  <span className='font-mono'>
+                    Foo
+                  </span>
+                </p>
+                <p>
+                  <span className='font-medium'>Patient name:&nbsp;</span>
+                  {caseData.full_name}
+                </p>
+                <p>
+                  <span className='font-medium'>Sex:&nbsp;</span> Female
+                  </p>
+                <p>
+                  <span className='font-medium'>Age:&nbsp;</span> 34
+                  </p>
+                <p>
+                  <span className='font-medium'>Feels like:&nbsp;</span>
+                  {caseData.blemish_feel}
+                </p>
+                <p>
+                  <span className='font-medium'>Family history of skin cancer:&nbsp;</span>
+                  {caseData.family_related === 'False' ? 'No' : 'Yes'}
+                </p>
+              </div>
+              <div className='py-6 w-5/12 mx-5'>
+                <img src={caseData.image_link} className='w-full h-auto' />
+              </div>
+            </div>
+            <div className='flex-1 p-6'>
+              <p>
+                <span className='font-bold'>Provider Feedback</span>
+              </p>
+              <p>
+                <span className='font-medium'>Next Steps:&nbsp;</span>
+                {feedbackData.next_steps}
+              </p>
+              <p>
+                <span className='font-medium'>In person care:&nbsp;</span>
+                {feedbackData.in_person == 'True' ? 'Yes' : 'No'}
+              </p>
+              <p>
+                <span className='font-medium'>Requires immediate attention:&nbsp;</span>
+                {feedbackData.next_steps == 'True' ? 'Yes' : 'No'}
+              </p>
+            </div>
+          </div>)}
       </div>
     </>
   )
