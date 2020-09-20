@@ -41,7 +41,7 @@ const Home = () => {
         className='fixed top-0 left-0 w-full h-full flex items-center justify-center'
         style={{ backgroundColor: 'rgba(0,0,0,0.4)' }}>
         <h1 className='text-white font-medium text-5xl'>
-          Find and triage medical problems faster, remotely.
+          Find and triage skin problems faster, remotely.
         </h1>
       </div>
     </>
