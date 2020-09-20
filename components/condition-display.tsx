@@ -28,18 +28,7 @@ const ConditionDisplay = (props: { conditionName: string; cases: Case[] }): JSX.
         <div className='flex-1 py-6'>
           <p>
             <span className='font-medium'>Patient ID:&nbsp;</span>
-            <span className='font-mono'>
-              {new String(
-                Math.log(
-                  parseInt(
-                    props.cases[selectedCase].full_name
-                      .split('')
-                      .map(x => x.charCodeAt(0))
-                      .join('')
-                  )
-                )
-              ).replace('.', '')}
-            </span>
+            <span className='font-mono'>{props.cases[selectedCase].submission}</span>
           </p>
           <p>
             <span className='font-medium'>Patient name:&nbsp;</span>

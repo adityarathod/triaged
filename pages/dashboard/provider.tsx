@@ -41,6 +41,7 @@ export interface Case {
   image_link: string
   phone: number
   probable_condition: keyof typeof ProbableConditions
+  submission: string
 }
 
 const ProviderDashboard = () => {
