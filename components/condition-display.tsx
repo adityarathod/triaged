@@ -15,7 +15,7 @@ const ConditionDisplay = (props: { conditionName: string; cases: Case[] }): JSX.
 
   useEffect(() => {
     setSelectedCase(0)
-  }, [props.conditionName, props.cases])
+  }, [props])
 
   if (!props.cases) {
     return (
@@ -25,7 +25,7 @@ const ConditionDisplay = (props: { conditionName: string; cases: Case[] }): JSX.
     )
   }
 
-  return (
+  return selectedCase < props.cases.length && (
     <div className='flex-1 h-full px-10 py-4'>
       <h2 className='text-3xl font-medium'>Possible {props.conditionName} Cases</h2>
       <div className='w-full flex flex-row'>
