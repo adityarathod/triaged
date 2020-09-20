@@ -5,14 +5,14 @@ import React, { useRef, useEffect } from 'react'
 import uuid from '../util/uuid'
 
 interface TypeformProps {
-    tfLink: string,
-    buttonText: string,
-    className: string
-  }
+  tfLink: string
+  buttonText: string
+  className: string
+}
 
 const Typeform = (props: TypeformProps): JSX.Element => {
   const typeformRef = useRef(null)
-  
+
   useEffect(() => {
     typeformEmbed.makeWidget(typeformRef.current, props.tfLink, {
       hideFooter: true,
@@ -22,9 +22,7 @@ const Typeform = (props: TypeformProps): JSX.Element => {
     })
   }, [typeformRef])
 
-  return (
-    <div ref={typeformRef} className={props.className}/>
-  )
+  return <div ref={typeformRef} className={props.className} />
 }
 
 export default Typeform

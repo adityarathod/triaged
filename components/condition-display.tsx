@@ -48,12 +48,16 @@ const ConditionDisplay = (props: { conditionName: string; cases: Case[] }): JSX.
             <span className='font-medium'>Family history of skin cancer:&nbsp;</span>
             {props.cases[selectedCase].family_related === 'False' ? 'No' : 'Yes'}
           </p>
-          <div className='w-6/12'>
-          <img src={props.cases[selectedCase].image_link} className='w-full h-auto' />
+          <div className='mt-4 pr-4 w-full h-9/12'>
+            <Typeform
+              className='h-9/12'
+              buttonText='Share feedback'
+              tfLink='https://form.typeform.com/to/GyyD3lw1'
+            />
           </div>
         </div>
         <div className='py-6 w-6/12'>
-          <Typeform className="h-full" buttonText="Share feedback" tfLink="https://form.typeform.com/to/GyyD3lw1"/>
+          <img src={props.cases[selectedCase].image_link} className='w-full h-auto' />
         </div>
         {/* <div className='py-6 w-5/12'>
         </div> */}
