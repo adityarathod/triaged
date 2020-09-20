@@ -81,7 +81,7 @@ const Report = () => {
                 </p>
                 <p>
                   <span className='font-medium'>Austomatic classification:&nbsp;</span>
-                  {caseData.classification}
+                  {caseData.probable_condition}
                 </p>
 
                 <div className='py-10'>
