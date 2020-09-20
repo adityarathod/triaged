@@ -28,6 +28,15 @@ const Navbar = (props: NavbarProps): JSX.Element => {
           </Link>
         </div>
       )}
+      {props.homePage && (
+        <div className='flex flex-col justify-center'>
+          <Link href='/triage'>
+            <button className='button bg-indigo-500 text-white font-medium rounded-full py-2 px-4'>
+              Automatic Evaluation
+            </button>
+          </Link>
+        </div>
+      )}
     </div>
   )
 }
