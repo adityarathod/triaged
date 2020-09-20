@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { Case } from '../pages/dashboard/provider'
+import * as typeformEmbed from '@typeform/embed'
+import React, { useRef, useEffect } from 'react'
 import uuid from '../util/uuid'
+import Typeform from './typeform'
 
 const ConditionDisplay = (props: { conditionName: string; cases: Case[] }): JSX.Element => {
   const [selectedCase, setSelectedCase] = useState(0)
@@ -56,10 +59,15 @@ const ConditionDisplay = (props: { conditionName: string; cases: Case[] }): JSX.
             <span className='font-medium'>Family history of skin cancer:&nbsp;</span>
             {props.cases[selectedCase].family_related === 'False' ? 'No' : 'Yes'}
           </p>
-        </div>
-        <div className='py-6 w-5/12'>
+          <div className='w-6/12'>
           <img src={props.cases[selectedCase].image_link} className='w-full h-auto' />
+          </div>
         </div>
+        <div className='py-6 w-6/12'>
+          <Typeform className="h-full" buttonText="Share feedback" tfLink="https://form.typeform.com/to/GyyD3lw1"/>
+        </div>
+        {/* <div className='py-6 w-5/12'>
+        </div> */}
       </div>
       <div className='my-8 flex flex-row items-center justify-center'>
         <button
