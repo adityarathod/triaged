@@ -40,6 +40,8 @@ export interface Case {
   full_name: string
   image_link: string
   phone: number
+  age: number
+  sex: string
   probable_condition: keyof typeof ProbableConditions
   submission: string
 }
@@ -64,6 +66,7 @@ const ProviderDashboard = () => {
           .map(x => x.data()) // return data as object
           .map(y => {
             const pc = y['probable_condition']
+            console.log(pc)
             if (!(pc in z)) {
               z[pc] = [y]
             } else {

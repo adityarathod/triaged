@@ -52,8 +52,8 @@ const Report = () => {
             className='w-full flex flex-col shadow-md rounded-lg  px-10 py-4'
             style={{ height: '500px' }}>
             <h2 className='text-3xl font-medium'>Report for {caseData.full_name}</h2>
-            <div className='flex flex-row'>
-              <div className='p-6'>
+            <div className='flex flex-row justify-between items-center'>
+              <div className='py-6'>
                 <p>
                   <span className='font-bold text-xl'>Patient Info</span>
                 </p>
@@ -66,10 +66,12 @@ const Report = () => {
                   {caseData.full_name}
                 </p>
                 <p>
-                  <span className='font-medium'>Sex:&nbsp;</span>Female
+                  <span className='font-medium'>Sex:&nbsp;</span>
+                  {caseData.sex}
                 </p>
                 <p>
-                  <span className='font-medium'>Age:&nbsp;</span>34
+                  <span className='font-medium'>Age:&nbsp;</span>
+                  {caseData.age}
                 </p>
                 <p>
                   <span className='font-medium'>Feels like:&nbsp;</span>
@@ -103,7 +105,9 @@ const Report = () => {
                         {feedbackData.next_steps == 'True' ? 'Yes' : 'No'}
                       </p>
                     </div>
-                  ) : <p>Awaiting provider feedback. Please check back later.</p>}
+                  ) : (
+                    <p>Awaiting provider feedback. Please check back later.</p>
+                  )}
                 </div>
               </div>
               <div className='py-6 w-5/12 mx-5'>
