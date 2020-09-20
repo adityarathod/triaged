@@ -79,6 +79,10 @@ const Report = () => {
                   <span className='font-medium'>Family history of skin cancer:&nbsp;</span>
                   {caseData.family_related === 'False' ? 'No' : 'Yes'}
                 </p>
+                <p>
+                  <span className='font-medium'>Austomatic classification:&nbsp;</span>
+                  {caseData.classification}
+                </p>
 
                 <div className='py-10'>
                   <p>
