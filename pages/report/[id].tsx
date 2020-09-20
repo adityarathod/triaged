@@ -81,7 +81,7 @@ const Report = () => {
                 </p>
                 <p>
                   <span className='font-medium'>Austomatic classification:&nbsp;</span>
-                  Melanoma
+                  {caseData.classification}
                 </p>
 
                 <div className='py-10'>
