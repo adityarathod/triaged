@@ -24,7 +24,6 @@ const Navbar = (props: NavbarProps): JSX.Element => {
       <div className='flex-1'>&nbsp;</div>
       {props.homePage && (
         <div className='flex flex-row'>
-          <NavbarButton href='/login/patient' text='Patient Login' />
           <NavbarButton href='/login/provider' text='Medical Provider Login' />
           <NavbarButton href='/triage' text='Begin Evaluation' />
         </div>
