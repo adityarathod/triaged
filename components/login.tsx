@@ -3,12 +3,6 @@ import { LOGO_PATH } from '../constants'
 
 const Login = () => {
   return (
-    <div className='flex flex-row w-screen h-screen'>
-      <div className='w-1/3 h-full flex items-center justify-center bg-indigo-500 text-white'>
-        <img src={LOGO_PATH} className='w-1/2' />
-      </div>
-      <div className='w-2/3 h-full py-16 px-12 flex flex-col justify-center items-center'>
-        <h1 className='font-medium text-4xl mb-6'>Medical Provider Login</h1>
         <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 w-1/2'>
           <div className='mb-4'>
             <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor='username'>
@@ -42,8 +36,6 @@ const Login = () => {
             </Link>
           </div>
         </form>
-      </div>
-    </div>
   )
 }
 
