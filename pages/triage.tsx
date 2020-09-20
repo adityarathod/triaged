@@ -1,12 +1,9 @@
 import Link from 'next/link'
 import { LOGO_PATH } from '../constants'
-import React, { useRef, useEffect } from 'react'
-import * as typeformEmbed from '@typeform/embed'
-import { useRouter } from 'next/router'
+import React, {  } from 'react'
 import Typeform from '../components/typeform'
 
 const Triage = () => {
-  const router = useRouter()
   return (
     <div className='flex flex-row w-screen h-screen bg-indigo-500 text-white'>
       <Typeform

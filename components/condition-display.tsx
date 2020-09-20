@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { Case } from '../pages/dashboard/provider'
-import * as typeformEmbed from '@typeform/embed'
-import React, { useRef, useEffect } from 'react'
-import uuid from '../util/uuid'
+import React, { useEffect } from 'react'
 import Typeform from './typeform'
 
 const ConditionDisplay = (props: { conditionName: string; cases: Case[] }): JSX.Element => {

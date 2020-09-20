@@ -1,9 +1,7 @@
 import { useRouter } from 'next/router'
-import Error from 'next/error'
 import { useEffect, useState } from 'react'
 import Navbar from '../../components/navbar'
 import firebase from '../../firebase'
-import { error } from '../../util/log'
 import { Case } from '../dashboard/provider'
 
 interface Feedback {
