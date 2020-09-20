@@ -8,17 +8,28 @@ import { error } from '../../util/log'
 const Report = () => {
   const router = useRouter()
   const { id } = router.query
-  const [data, setData] = useState(null)
+  const [surveyData, setSurveyData] = useState(null)
+  const [feedbackData, setFeedbackData] = useState(null)
 
   useEffect(() => {
     if (!id) return
+
     firebase
       .firestore()
       .collection('survey')
       .doc(id.toString())
       .get()
       .then(snapshot => {
-        setData(snapshot.data())
+        setSurveyData(snapshot.data())
+      })
+      
+    firebase
+      .firestore()
+      .collection('feedback')
+      .doc(id.toString())
+      .get()
+      .then(snapshot => {
+        setFeedbackData(snapshot.data())
       })
   }, [id])
 
@@ -30,7 +41,10 @@ const Report = () => {
         <hr className='my-4' />
         <div
           className='w-full flex flex-row shadow-md rounded-lg'
-          style={{ height: '500px' }}></div>
+          style={{ height: '500px' }}>
+            {JSON.stringify(surveyData)}
+            {JSON.stringify(feedbackData)}
+          </div>
       </div>
     </>
   )
