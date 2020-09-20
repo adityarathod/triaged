@@ -15,6 +15,7 @@ const Triage = () => {
       buttonText: "Let's get Started.",
       onSubmit: function () {
         router.push('/dashboard')
+        // TODO: make this go to confirmation page
       },
     })
   }, [typeformRef])
