@@ -12,7 +12,16 @@ const Navbar = (props: NavbarProps): JSX.Element => {
       <div className='flex-1'>&nbsp;</div>
       {props.homePage && (
         <div className='flex flex-col justify-center'>
-          <Link href='/login'>
+          <Link href='/login-patient'>
+            <button className='button bg-indigo-500 text-white font-medium rounded-full py-2 px-4'>
+              Patient Login
+            </button>
+          </Link>
+        </div>
+      )}
+      {props.homePage && (
+        <div className='flex flex-col justify-center'>
+          <Link href='/login-provider'>
             <button className='button bg-indigo-500 text-white font-medium rounded-full py-2 px-4'>
               Health Provider Login
             </button>
